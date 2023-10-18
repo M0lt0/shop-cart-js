@@ -5,20 +5,22 @@ for (var i = 0; i < removeBtn.length; i++) {
   btn.addEventListener("click", (e) => {
     var btnClicked = e.target;
     var parent = btnClicked.parentElement.parentElement;
-    //parent.remove();
+    parent.remove();
     updateCartTotal();
   });
 }
 
 function updateCartTotal() {
-  var cartItems = document.getElementsByClassName("cart-items")[0];
-  var cartRows = document.getElementsByClassName("cart-row");
+  var cartItemsContainer = document.getElementsByClassName("cart-items")[0];
+  var cartRows = cartItemsContainer.getElementsByClassName("cart-row");
+  var total = 0;
   for (var i = 0; i < cartRows.length; i++) {
     var cartRow = cartRows[i];
     var priceElement = cartRow.getElementsByClassName("cart-price")[0];
     var quntElement = cartRow.getElementsByClassName("cart-quantity-input")[0];
     var price = parseFloat(priceElement.innerText.replace("$", ""));
     var quantity = quntElement.value;
+    total = total + price * quantity;
     console.log(quantity);
   }
 }
