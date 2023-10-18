@@ -1,3 +1,3 @@
-# cuddly-meme
+# js exercise
 
-a repo to save my workfllow for developing the bonsae site
+a repo to refresh my knowledge in js domain
