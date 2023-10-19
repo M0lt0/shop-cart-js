@@ -1,13 +1,21 @@
-var removeBtn = document.getElementsByClassName("btn-danger");
+if (document.readyState == "loading") {
+  document.addEventListener("DOMContentLoaded", ready);
+} else {
+  ready();
+}
 
-for (var i = 0; i < removeBtn.length; i++) {
-  var btn = removeBtn[i];
-  btn.addEventListener("click", (e) => {
-    var btnClicked = e.target;
-    var parent = btnClicked.parentElement.parentElement;
-    parent.remove();
-    updateCartTotal();
-  });
+function ready() {
+  var removeBtn = document.getElementsByClassName("btn-danger");
+
+  for (var i = 0; i < removeBtn.length; i++) {
+    var btn = removeBtn[i];
+    btn.addEventListener("click", (e) => {
+      var btnClicked = e.target;
+      var parent = btnClicked.parentElement.parentElement;
+      parent.remove();
+      updateCartTotal();
+    });
+  }
 }
 
 function updateCartTotal() {
@@ -21,6 +29,7 @@ function updateCartTotal() {
     var price = parseFloat(priceElement.innerText.replace("$", ""));
     var quantity = quntElement.value;
     total = total + price * quantity;
-    console.log(quantity);
   }
+  document.getElementsByClassName("cart-total-price")[0].innerText =
+    "$" + total;
 }
