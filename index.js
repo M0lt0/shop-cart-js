@@ -16,7 +16,17 @@ function ready() {
       updateCartTotal();
     });
   }
+  var quantityInput = document.getElementsByClassName("cart-quantity-input");
+  for (let i = 0; i < quantityInput.length; i++) {
+    var input = quantityInput[i];
+    input.addEventListener("change", quantityChange);
+  }
 }
+
+quantityChange(e){
+ var
+}
+
 
 function updateCartTotal() {
   var cartItemsContainer = document.getElementsByClassName("cart-items")[0];
